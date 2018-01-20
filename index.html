@@ -7,9 +7,9 @@
 <body>
 
 <div id="app">
-  <button v-on:mousedown="play" v-on:mouseup="pause"  type="button">Click Me to Play Sound</button>
-  <audio ref="audioElm" src="Rock_Intro_3.mp3"></audio>
-  <audio ref="audioElm2" src="Piano_March.mp3"></audio>
+  <button  v-on:mousedown="play" v-on:mouseup="pause"  type="button">Click Me to Play Sound</button>
+  <audio  id="au1" ref="audioElm" src="Rock_Intro_3.mp3"></audio>
+  <audio id="au2" ref="audioElm2" src="Piano_March.mp3"></audio>
 </div>
 
 <script src="https://unpkg.com/vue@2.5.13/dist/vue.js"></script>

@@ -1,45 +1,48 @@
-
+var mouse = 0;
 var app = new Vue({
     el: '#app',
+    
     methods: {
-      play: function(event) {
-          var test = false;
-          var d = new Date();
-          var temp = d.getTime();
-          var check = temp+10000
-         // console.log(temp);
-         // console.log(check);
-          this.$refs.audioElm.play();
-           for(var i = check;;i--){
-               var d_now = new Date();
-               var now = d_now.getTime();
-               if((now-temp)>5000){
-                this.$refs.audioElm.pause();
-                this.$refs.audioElm.currentTime = 0
-                this.$refs.audioElm2.play();
-               }
-               if((now-temp)>=10000){
-                    
-                    this.$refs.audioElm.pause();
-                    this.$refs.audioElm.currentTime = 0
-                    this.$refs.audioElm2.pause();
-                    this.$refs.audioElm2.currentTime = 0
-                    break;
-                }
-                
-             //  console.log(i);
-           }
-        
-      },
-      pause: function(event,){
+      play : function(event) {
+        mouse = 1;
         var d = new Date();
         var temp = d.getTime();
-        console.log(temp);
+        //console.log(mouse);
+        this.$refs.audioElm.play();
+        var timecheck = setTimeout(
+            "change()",3000)
+    
+      },
+     
+
+      pause : function(event){
+        mouse = 3;
         this.$refs.audioElm.pause();
-        this.$refs.audioElm.currentTime = 0
-        this.$refs.audioElm2.pause();
-        this.$refs.audioElm2.currentTime = 0
-       
+   this.$refs.audioElm.currentTime = 0
+   this.$refs.audioElm2.pause();
+   this.$refs.audioElm2.currentTime = 0
+        
       }
+      
     }
   })
+  var int = self.setInterval("mousecheck()",50)
+  function mousecheck(){
+      if(mouse %3 == 1){
+        console.log(mouse);
+       // this.$refs.audioElm.play();
+        
+    }
+      else if(mouse%3 ==0){
+        console.log(mouse);
+      }
+  }
+  function change(){
+    if(mouse%3 != 0){mouse = 2;console.log(mouse);
+        var au2 = document.getElementById("au2");
+        au2.play();
+        var au1 = document.getElementById("au1");
+        au1.pause();
+        au1.currentTime = 0;
+    }
+  }
