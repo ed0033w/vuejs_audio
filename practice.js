@@ -26,19 +26,19 @@ var app = new Vue({
       
     }
   })
-  var int = self.setInterval("mousecheck()",50)
+  var int = self.setInterval("mousecheck()",5)
   function mousecheck(){
       if(mouse %3 == 1){
-       // console.log(mouse);
+        console.log(mouse);
        // this.$refs.audioElm.play();
         
     }
       else if(mouse%3 ==0){
-       // console.log(mouse);
+        console.log(mouse);
       }
   }
   function change(){
-    if(mouse%3 != 0){mouse = 2;//console.log(mouse);
+    if(mouse%3 != 0){mouse = 2;console.log(mouse);
         var au2 = document.getElementById("au2");
         au2.play();
         var au1 = document.getElementById("au1");
